@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.vite/
+
+*.log
+*.local
+
+.DS_Store
+Thumbs.db
+
+*.bak
+*_backup.jsx
+src/DiscutAI_Landing.inline-backup.jsx
+
+# Local legacy files (outside Vite src/)
+App.css
+App.jsx
+DiscutAI_Landing.jsx
