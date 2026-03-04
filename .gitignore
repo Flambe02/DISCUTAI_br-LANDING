@@ -13,6 +13,6 @@ Thumbs.db
 src/DiscutAI_Landing.inline-backup.jsx
 
 # Local legacy files (outside Vite src/)
-App.css
-App.jsx
-DiscutAI_Landing.jsx
+/App.css
+/App.jsx
+/DiscutAI_Landing.jsx
