@@ -1,12 +1,13 @@
 ﻿import { useState, useEffect, useRef } from "react";
 import Nav from "./Nav";
+import { assetUrl } from "./assetUrl";
 
 const IMGS = {
-  LOGO: "/images/logo.webp",
-  HERO: "/images/hero.webp",
-  POS: "/images/pos.webp",
-  LEARN: "/images/learn.webp",
-  BADGE: "/images/badge.webp",
+  LOGO: assetUrl("images/logo.webp"),
+  HERO: assetUrl("images/hero.webp"),
+  POS: assetUrl("images/pos.webp"),
+  LEARN: assetUrl("images/learn.webp"),
+  BADGE: assetUrl("images/badge.webp"),
 };
 
 function Counter({ target, suffix = "", duration = 1800 }) {

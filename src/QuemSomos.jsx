@@ -1,6 +1,7 @@
 import Nav from "./Nav";
+import { assetUrl } from "./assetUrl";
 
-const LOGO = "/images/logo.webp";
+const LOGO = assetUrl("images/logo.webp");
 
 const VALUES = [
   { icon: "◆", title: "Simplicidade primeiro", desc: "Configuração em minutos, sem linha de código. Se for complicado, ainda não acabamos.", accent: "#4F46E5", bg: "#EEF2FF" },

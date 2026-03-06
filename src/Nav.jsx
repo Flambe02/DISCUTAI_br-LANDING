@@ -1,11 +1,13 @@
-const LOGO = "/images/logo.webp";
+import { assetUrl } from "./assetUrl";
+
+const LOGO = assetUrl("images/logo.webp");
 
 const SECTOR_LINKS = [
   { label: "Cabeleireiro",     href: "#/solucoes/cabeleireiro" },
   { label: "Restaurante",      href: "#/solucoes/restaurante" },
   { label: "Imobiliária",      href: "#/solucoes/imobiliaria" },
   { label: "Clínica / Dentista", href: "#/solucoes/clinica-dentista" },
-  { label: "E-commerce",       href: "#/solucoes/ecommerce" },
+  { label: "EscritÃ³rio ContÃ¡bil", href: "#/solucoes/escritorio-contabil" },
 ];
 
 const NAV_LINKS = [

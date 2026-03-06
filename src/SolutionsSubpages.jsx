@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { getSolutionBySlug, solutions } from "./solutionsDataPt";
 import Nav from "./Nav";
+import { assetUrl } from "./assetUrl";
 
-const LOGO = "/images/logo.webp";
+const LOGO = assetUrl("images/logo.webp");
 
 const TOOLS = {
   whatsapp: {
@@ -571,14 +572,14 @@ function Detalhe({ solution }) {
               <div>
                 <div style={{ borderRadius: 20, overflow: "hidden", boxShadow: "0 18px 48px rgba(78,56,49,0.14)", background: "#fff", lineHeight: 0 }}>
                   <img
-                    src="/images/calendar.png"
+                    src={assetUrl("images/calendar.png")}
                     alt="Agenda Google com agendamentos do salão"
                     style={{ width: "100%", height: "auto", display: "block" }}
                   />
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 20, padding: "16px 20px", background: "rgba(255,255,255,0.9)", borderRadius: 16, border: "1px solid rgba(111,89,81,0.1)", boxShadow: "0 4px 16px rgba(78,56,49,0.06)" }}>
                   <img
-                    src="/images/Calendar google logo.jpg"
+                    src={assetUrl("images/Calendar google logo.jpg")}
                     alt="Google Calendar"
                     style={{ width: 40, height: 40, objectFit: "contain", borderRadius: 8, flexShrink: 0 }}
                   />
@@ -593,7 +594,7 @@ function Detalhe({ solution }) {
               <div>
                 <div style={{ borderRadius: 20, overflow: "hidden", boxShadow: "0 18px 48px rgba(78,56,49,0.14)", background: "#fff", lineHeight: 0 }}>
                   <img
-                    src="/images/ECran message intern.jpeg"
+                    src={assetUrl("images/ECran message intern.jpeg")}
                     alt="Exemplo de conversa no WhatsApp com o colaborador virtual"
                     style={{ width: "100%", height: "auto", display: "block" }}
                   />
