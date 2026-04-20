@@ -24,7 +24,7 @@ export default function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  const WA_HREF = "https://wa.me/5511976458933?text=Ol%C3%A1%2C%20quero%20testar%20o%20DiscutAI_BR%21";
+  const WA_HREF = "https://wa.me/5511919493562?text=Ol%C3%A1%2C%20quero%20testar%20o%20DiscutAI_BR%21";
 
   const floatBtn = (
     <a

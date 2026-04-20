@@ -6,7 +6,7 @@ const LOGO = assetUrl("images/logo.webp");
 const VALUES = [
   { icon: "◆", title: "Simplicidade primeiro", desc: "Configuração em minutos, sem linha de código. Se for complicado, ainda não acabamos.", accent: "#4F46E5", bg: "#EEF2FF" },
   { icon: "◈", title: "Resultado acima de tudo", desc: "Cada colaborador existe para gerar impacto real: menos trabalho manual, mais vendas, mais clientes atendidos.", accent: "#14B8A6", bg: "#CCFBF1" },
-  { icon: "◉", title: "Construído para o Brasil", desc: "Pix, WhatsApp, Google Agenda, PT-BR, dados hospedados aqui. Feito para a realidade das PMEs brasileiras.", accent: "#F59E0B", bg: "#FEF3C7" },
+  { icon: "◉", title: "Construído para o Brasil", desc: "Pix, WhatsApp, Google Agenda, PT-BR, conformidade LGPD. Feito para a realidade das PMEs brasileiras.", accent: "#F59E0B", bg: "#FEF3C7" },
   { icon: "◎", title: "Humano quando importa", desc: "A IA assume o volume — mas quando o cliente precisa de uma pessoa, o colaborador passa o contexto completo.", accent: "#F43F5E", bg: "#FFE4E6" },
 ];
 
@@ -59,7 +59,7 @@ export default function QuemSomos() {
               { num: "24h", label: "Atendimento contínuo, todos os dias" },
               { num: "5 min", label: "Setup e colaborador funcionando" },
               { num: "99,9%", label: "Uptime garantido na plataforma" },
-              { num: "BR", label: "Dados hospedados no Brasil" },
+              { num: "🔒", label: "Conformidade LGPD" },
             ].map((s, i) => (
               <div key={i} style={{ background: "#F9FAFB", borderRadius: 16, padding: "24px 20px", textAlign: "center" }}>
                 <div style={{ fontSize: 32, fontWeight: 900, color: "#4F46E5", lineHeight: 1, marginBottom: 8 }}>{s.num}</div>
@@ -139,7 +139,7 @@ export default function QuemSomos() {
       <footer style={{ background: "#0A0A14", padding: "40px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
         <img src={LOGO} alt="DiscutAI_BR" style={{ height: 28, filter: "brightness(2) saturate(0.4)" }} />
         <span style={{ color: "rgba(255,255,255,.35)", fontSize: 13 }}>© 2026 DiscutAI_BR — Colaboradores virtuais para PMEs brasileiras</span>
-        <span style={{ color: "rgba(255,255,255,.35)", fontSize: 13 }}>contato@discutai.br</span>
+        <span style={{ color: "rgba(255,255,255,.35)", fontSize: 13 }}>contacto@discutai.com.br</span>
       </footer>
     </div>
   );

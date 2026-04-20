@@ -235,6 +235,7 @@ function Styles() {
       .hero-panel,
       .solution-card,
       .feature-card,
+      .integration-showcase,
       .step-card,
       .usecase-card,
       .highlight-card,
@@ -249,6 +250,7 @@ function Styles() {
       .hero-panel,
       .solution-card,
       .feature-card,
+      .integration-showcase,
       .step-card,
       .usecase-card,
       .highlight-card,
@@ -279,8 +281,23 @@ function Styles() {
       .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .highlights-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
+      .integration-showcase {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
+        gap: 26px;
+        align-items: stretch;
+        margin-top: 24px;
+      }
+
+      .integration-showcase__copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
       .solution-card__category,
       .feature-card small,
+      .integration-showcase small,
       .step-card small,
       .stat-card small {
         display: block;
@@ -293,6 +310,7 @@ function Styles() {
 
       .solution-card__title,
       .feature-card h3,
+      .integration-showcase h3,
       .step-card h3,
       .usecase-card h3,
       .highlight-card strong {
@@ -300,6 +318,32 @@ function Styles() {
         display: block;
         font-size: 1.3rem;
         line-height: 1.2;
+      }
+
+      .integration-showcase__media img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+        border-radius: 14px;
+        border: 1px solid rgba(111, 89, 81, 0.12);
+        box-shadow: 0 18px 36px rgba(36, 24, 22, 0.12);
+        background: white;
+      }
+
+      .integration-showcase__media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 420px;
+        padding: 18px;
+        border-radius: 24px;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,240,234,0.92)),
+          white;
+        border: 1px solid rgba(111, 89, 81, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
       }
 
       .solution-card__item,
@@ -390,6 +434,7 @@ function Styles() {
         .detail-hero__grid,
         .catalogo-grid,
         .feature-grid,
+        .integration-showcase,
         .steps-grid,
         .usecases-grid,
         .highlights-grid,
@@ -515,8 +560,8 @@ function Detalhe({ solution }) {
             </h1>
             <p className="detail-copy">{solution.heroLead}</p>
             <div className="detail-actions">
-              <a className="primary-button" href="https://wa.me/5511976458933?text=Ol%C3%A1%2C%20quero%20testar%20o%20DiscutAI_BR%21" target="_blank" rel="noopener noreferrer">
-                Testar grátis 14 dias →
+              <a className="primary-button" href="https://wa.me/5511919493562?text=Ol%C3%A1%2C%20quero%20testar%20o%20DiscutAI_BR%21" target="_blank" rel="noopener noreferrer">
+                Testar grátis 7 dias →
               </a>
               <a className="secondary-button" href="#/solucoes">
                 Voltar para soluções
@@ -663,6 +708,22 @@ function Detalhe({ solution }) {
             ))}
           </div>
 
+          {solution.integrationShowcase && (
+            <article className="integration-showcase">
+              <div className="integration-showcase__copy">
+                <small>{solution.integrationShowcase.eyebrow}</small>
+                <h3>{solution.integrationShowcase.title}</h3>
+                <p className="card-copy">{solution.integrationShowcase.description}</p>
+              </div>
+              <div className="integration-showcase__media">
+                <img
+                  src={assetUrl(solution.integrationShowcase.image)}
+                  alt={solution.integrationShowcase.imageAlt}
+                />
+              </div>
+            </article>
+          )}
+
           <div className="operations-grid">
             {solution.operations.map((item, index) => (
               <div key={item} className="operation-item">
@@ -792,8 +853,8 @@ function Detalhe({ solution }) {
               Setup em 5 minutos. Sem cartão de crédito. Sem técnico. Conecte o WhatsApp, configure seu setor e comece a atender hoje.
             </p>
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <a className="primary-button" href="https://wa.me/5511976458933?text=Ol%C3%A1%2C%20quero%20testar%20o%20DiscutAI_BR%21" target="_blank" rel="noopener noreferrer">
-                Testar grátis 14 dias →
+              <a className="primary-button" href="https://wa.me/5511919493562?text=Ol%C3%A1%2C%20quero%20testar%20o%20DiscutAI_BR%21" target="_blank" rel="noopener noreferrer">
+                Testar grátis 7 dias →
               </a>
               <a className="secondary-button" href="#/solucoes" style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.25)", color: "white" }}>
                 Ver outros setores
@@ -809,9 +870,186 @@ function Detalhe({ solution }) {
   );
 }
 
+const OUTROS_SECTORS = [
+  { emoji: "🛍️", name: "E-commerce",           category: "Varejo Digital",    desc: "Responde pedidos, rastreia entregas e cuida do pós-venda automaticamente — sem equipe extra." },
+  { emoji: "🏥", name: "Clínica Médica",        category: "Saúde",             desc: "Triagem, agendamentos e orientações de preparo respondidos 24h — liberando a recepção para o essencial." },
+  { emoji: "🐾", name: "Pet Shop / Veterinário", category: "Pet",               desc: "Agenda banho, tosa e consultas, responde sobre vacinas e informa disponibilidade em tempo real." },
+  { emoji: "💪", name: "Academia / Fitness",    category: "Bem-estar",         desc: "Matrículas, planos, aulas experimentais e dúvidas sobre treinos resolvidos no WhatsApp." },
+  { emoji: "📚", name: "Escola / Curso",        category: "Educação",          desc: "Captação de alunos, rematrícula, dúvidas sobre grade e documentação — tudo automático." },
+  { emoji: "🏨", name: "Hotel / Pousada",       category: "Hospitalidade",     desc: "Disponibilidade, reservas, check-in e perguntas sobre acomodações respondidas na hora." },
+  { emoji: "💊", name: "Farmácia",              category: "Saúde",             desc: "Consulta de estoque, preço de medicamentos e orientações básicas — atendimento ágil sem fila." },
+  { emoji: "⚖️", name: "Escritório de Advocacia", category: "Jurídico",        desc: "Triagem de casos, agendamento de consultas e orientações iniciais — com discrição e clareza." },
+  { emoji: "🔧", name: "Mecânica / Auto Peças", category: "Automotivo",        desc: "Orçamentos, status do serviço e agenda de revisões gerenciados sem interromper a oficina." },
+  { emoji: "🥖", name: "Padaria / Confeitaria", category: "Alimentação",       desc: "Encomendas, cardápio do dia, horários de retirada e promoções respondidas automaticamente." },
+  { emoji: "💅", name: "Spa / Estética",        category: "Beleza",            desc: "Agenda de procedimentos, pacotes e dúvidas sobre tratamentos organizados sem esforço." },
+  { emoji: "💰", name: "Assessor Financeiro",   category: "Finanças",          desc: "Qualificação de leads, briefing inicial e agendamento de reuniões — pipeline sempre ativo." },
+  { emoji: "📷", name: "Fotógrafo / Videomaker", category: "Criativo",         desc: "Briefing, orçamentos e agenda de sessões captados automaticamente via WhatsApp." },
+  { emoji: "🍺", name: "Bar / Pub / Delivery",  category: "Alimentação",       desc: "Cardápio, pedidos, delivery e reservas gerenciados sem acumular mensagens na equipe." },
+  { emoji: "🧹", name: "Limpeza / Serviços",    category: "Serviços",          desc: "Agenda de visitas, orçamentos e confirmações de serviço — sem depender do celular do proprietário." },
+  { emoji: "🎓", name: "Coaching / Mentoria",   category: "Desenvolvimento",   desc: "Primeiro contato, triagem de fit e agenda de sessões tratados com leveza e profissionalismo." },
+];
+
+function Outros() {
+  return (
+    <div style={{ "--accent": "#6D5FFF" }}>
+      {/* Hero */}
+      <section className="detail-hero">
+        <div className="shell">
+          <Pill>Outros Setores</Pill>
+          <h1 style={{ fontFamily: '"DM Serif Display", serif', fontWeight: 400, fontSize: "clamp(2.6rem,5.5vw,5rem)", lineHeight: 0.95, letterSpacing: "-0.03em", margin: "18px 0 20px", color: "#201816" }}>
+            Seu negócio é <em style={{ color: "#6D5FFF", fontStyle: "italic" }}>diferente?</em><br />A IA se adapta.
+          </h1>
+          <p style={{ fontSize: "1.08rem", color: "#5d4d48", lineHeight: 1.7, maxWidth: 640, marginBottom: 32 }}>
+            Além dos 7 setores com páginas dedicadas, o DiscutAI_BR atende qualquer tipo de negócio que receba mensagens de clientes. Abaixo, alguns exemplos — mas a lista é praticamente infinita.
+          </p>
+          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+            <a className="primary-button" href="https://wa.me/5511919493562?text=Ol%C3%A1%2C%20quero%20saber%20se%20o%20DiscutAI_BR%20funciona%20para%20o%20meu%20tipo%20de%20neg%C3%B3cio%21" target="_blank" rel="noopener noreferrer" style={{ background: "linear-gradient(135deg,#6D5FFF,#4F46E5)", boxShadow: "0 18px 32px rgba(109,95,255,0.28)" }}>
+              Funciona para o meu negócio? →
+            </a>
+            <a className="secondary-button" href="#/solucoes">
+              Ver setores com página dedicada
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats bar */}
+      <div style={{ background: "rgba(255,245,238,0.62)", borderTop: "1px solid rgba(111,89,81,0.08)", borderBottom: "1px solid rgba(111,89,81,0.08)", padding: "20px 0" }}>
+        <div className="shell" style={{ display: "flex", gap: "16px 40px", flexWrap: "wrap", alignItems: "center" }}>
+          {[
+            { v: "24h", l: "atendimento sem parar" },
+            { v: "5 min", l: "para configurar" },
+            { v: "10s", l: "tempo de resposta" },
+            { v: "Qualquer", l: "setor, qualquer canal" },
+          ].map(s => (
+            <div key={s.l} style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+              <span style={{ fontSize: 22, fontWeight: 900, color: "#6D5FFF" }}>{s.v}</span>
+              <span style={{ fontSize: 13, color: "#6B7280", fontWeight: 600 }}>{s.l}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Sectors grid */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-header" style={{ "--accent": "#6D5FFF" }}>
+            <Pill>Exemplos de setores</Pill>
+            <h2 className="section-title" style={{ color: "#201816" }}>
+              Onde o colaborador virtual <em>já funciona</em>.
+            </h2>
+            <p className="section-copy">
+              Se o seu negócio recebe mensagens de clientes, o colaborador pode atendê-las. Veja alguns casos de uso concretos abaixo.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 18 }}>
+            {OUTROS_SECTORS.map(s => (
+              <div key={s.name} className="solution-card" style={{ "--accent": "#6D5FFF", cursor: "default" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 12, background: "#EEF2FF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>
+                    {s.emoji}
+                  </div>
+                  <div>
+                    <div style={{ fontSize: 10, fontWeight: 800, color: "#9CA3AF", letterSpacing: "0.07em", textTransform: "uppercase", marginBottom: 2 }}>{s.category}</div>
+                    <h3 style={{ fontSize: 16, fontWeight: 700, color: "#201816", margin: 0, lineHeight: 1.2 }}>{s.name}</h3>
+                  </div>
+                </div>
+                <p style={{ fontSize: 13, color: "#5d4d48", lineHeight: 1.65, margin: 0 }}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it adapts */}
+      <section className="section section--soft">
+        <div className="shell">
+          <div className="section-header" style={{ "--accent": "#6D5FFF" }}>
+            <Pill>Como funciona</Pill>
+            <h2 className="section-title" style={{ color: "#201816" }}>
+              O colaborador aprende <em>o seu negócio</em>.
+            </h2>
+            <p className="section-copy">
+              Não importa o setor: você ensina os seus serviços, preços, horários e regras — o colaborador responde como se conhecesse sua operação de cor.
+            </p>
+          </div>
+
+          <div className="feature-grid">
+            {[
+              { icon: "📄", title: "Suba seus documentos", desc: "Cardápio, tabela de preços, FAQ, regras de atendimento — o colaborador absorve tudo em minutos." },
+              { icon: "🔗", title: "Conecte seus canais", desc: "WhatsApp, Instagram, Messenger ou site. Sem código, sem técnico, sem complicação." },
+              { icon: "🤖", title: "Configure o tom da marca", desc: "Formal, descontraído, técnico — você define a personalidade do atendimento." },
+              { icon: "🔄", title: "Evolui com o negócio", desc: "Novos produtos, mudança de horário, promoção especial — atualiza em minutos, sem reconstruir do zero." },
+            ].map(f => (
+              <div key={f.title} className="feature-card" style={{ "--accent": "#6D5FFF" }}>
+                <div style={{ fontSize: 36, marginBottom: 12 }}>{f.icon}</div>
+                <small>{f.title}</small>
+                <h3>{f.title}</h3>
+                <p className="card-copy">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Setores com página dedicada */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-header" style={{ "--accent": "#6D5FFF" }}>
+            <Pill>Páginas dedicadas</Pill>
+            <h2 className="section-title" style={{ color: "#201816" }}>
+              Setores com solução <em>detalhada</em>.
+            </h2>
+            <p className="section-copy">
+              Para estes 7 setores, temos páginas completas com casos de uso, funcionalidades e integrações específicas.
+            </p>
+          </div>
+          <div className="other-grid">
+            {solutions.map(s => (
+              <a key={s.slug} href={`#/solucoes/${s.slug}`} className="solution-card" style={{ "--accent": s.accent }}>
+                <span className="solution-card__category">{s.category}</span>
+                <h3 className="solution-card__title">{s.name}</h3>
+                <p className="card-copy">{s.heroLead}</p>
+                <span className="solution-card__link">Ver solução →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section section--soft">
+        <div className="shell">
+          <div className="cta-panel" style={{ "--accent": "#6D5FFF" }}>
+            <Pill>Comece agora</Pill>
+            <h2>
+              Não viu seu setor? <em>Fale com a gente.</em>
+            </h2>
+            <p>
+              Descrevemos em 5 minutos como o colaborador funcionaria no seu contexto específico — sem compromisso, sem enrolação.
+            </p>
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+              <a className="primary-button" href="https://wa.me/5511919493562?text=Ol%C3%A1%2C%20quero%20saber%20se%20o%20DiscutAI_BR%20funciona%20para%20o%20meu%20tipo%20de%20neg%C3%B3cio%21" target="_blank" rel="noopener noreferrer">
+                Falar com a equipe →
+              </a>
+              <a className="secondary-button" href="#/solucoes" style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.25)", color: "white" }}>
+                Ver setores com página dedicada
+              </a>
+            </div>
+            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: 13, marginTop: 18, marginBottom: 0 }}>
+              ✓ Resposta em minutos &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ Demo gratuita
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 export default function SolutionsSubpages() {
   const route = useHashRoute();
-  const solution = route.page === "detalhe" ? getSolutionBySlug(route.slug) : null;
+  const solution = route.page === "detalhe" && route.slug !== "outros" ? getSolutionBySlug(route.slug) : null;
 
   return (
     <div className="solutions-app">
@@ -819,12 +1057,17 @@ export default function SolutionsSubpages() {
 
       <Nav />
 
-      {route.page === "detalhe" && solution ? <Detalhe key={solution.slug} solution={solution} /> : <Catalogo />}
+      {route.page === "detalhe" && route.slug === "outros"
+        ? <Outros />
+        : route.page === "detalhe" && solution
+          ? <Detalhe key={solution.slug} solution={solution} />
+          : <Catalogo />
+      }
 
       <footer className="shell footer">
         <img src={LOGO} alt="DiscutAI_BR" style={{ height: 28, filter: "none" }} />
         <span>© 2026 DiscutAI_BR — Colaboradores virtuais para PMEs brasileiras</span>
-        <span>contato@discutai.br</span>
+        <span>contacto@discutai.com.br</span>
       </footer>
     </div>
   );

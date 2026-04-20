@@ -48,6 +48,7 @@ export const solutions = [
         tools: ["whatsapp"],
       },
     ],
+
     operations: [
       "Corte, escova, coloração, barba e tratamentos capilares",
       "Pix no chat + comprovante + cor automática no Google Agenda",
@@ -223,37 +224,37 @@ export const solutions = [
     slug: "restaurante",
     name: "Restaurante",
     navLabel: "Restaurante",
-    category: "Alimentação",
+    category: "Alimenta\u00e7\u00e3o",
     accent: "#d97706",
-    heroTitle: "Seu Restaurante com reservas, eventos e privatizações no piloto automático.",
+    heroTitle: "Seu Restaurante com reservas, eventos e privatiza\u00e7\u00f5es no piloto autom\u00e1tico.",
     heroLead:
-      "Reservas, pedidos, eventos, privatização de salão e propostas comerciais — tudo gerenciado via WhatsApp, Instagram ou no seu site. Equipe focada em servir, não em responder mensagem.",
+      "Reservas, pedidos, eventos, privatiza\u00e7\u00e3o de sal\u00e3o e propostas comerciais \u2014 tudo gerenciado via WhatsApp, Instagram ou no seu site. Equipe focada em servir, n\u00e3o em responder mensagem.",
     heroSnapshot: [
-      "Reservas e eventos confirmados automaticamente — 24h",
-      "Privatização + proposta comercial enviada no chat",
-      "Escalation configurável — você retoma quando quiser",
+      "Reservas e eventos confirmados automaticamente \u2014 24h",
+      "Privatiza\u00e7\u00e3o + proposta comercial enviada no chat",
+      "Escalation configur\u00e1vel \u2014 voc\u00ea retoma quando quiser",
     ],
     keyBenefit: "Mais mesas ocupadas. Mais eventos fechados. Equipe livre.",
     keyBenefitDetail:
       "O colaborador capta reservas, fecha eventos e envia propostas enquanto sua equipe serve.",
     highlights: [
-      "Reservas, grupos e eventos privativos — tudo automatizado",
+      "Reservas, grupos e eventos privativos \u2014 tudo automatizado",
       "Proposta comercial enviada direto no chat",
-      "Cardápio, restrições e horários respondidos em segundos",
-      "Escalation configurável para casos que precisam de você",
+      "Card\u00e1pio, restri\u00e7\u00f5es e hor\u00e1rios respondidos em segundos",
+      "Escalation configur\u00e1vel para casos que precisam de voc\u00ea",
     ],
     features: [
       {
         eyebrow: "Reservas & Eventos",
-        title: "Mesa ou salão privativo — confirmado no chat.",
+        title: "Mesa ou sal\u00e3o privativo \u2014 confirmado no chat.",
         description:
-          "Quantidade, horário, ocasião, menu especial: captados automaticamente. Para evento, envia a proposta comercial e confirma a privatização. Sem telefonema.",
+          "Quantidade, hor\u00e1rio, ocasi\u00e3o, menu especial: captados automaticamente. Para evento, envia a proposta comercial e confirma a privatiza\u00e7\u00e3o. Sem telefonema.",
       },
       {
-        eyebrow: "Cardápio",
+        eyebrow: "Card\u00e1pio",
         title: "Responde antes do cliente fechar o app.",
         description:
-          "Itens, alérgicos, opções vegetarianas, pratos do dia, estacionamento — acessíveis 24h via WhatsApp, Instagram ou no seu site.",
+          "Itens, al\u00e9rgicos, op\u00e7\u00f5es vegetarianas, pratos do dia, estacionamento \u2014 acess\u00edveis 24h via WhatsApp, Instagram ou no seu site.",
       },
       {
         eyebrow: "Pedidos",
@@ -262,30 +263,45 @@ export const solutions = [
           "Retirada, delivery ou encomenda: o colaborador coleta tudo e repassa para a equipe pronto para executar.",
       },
       {
-        eyebrow: "Controle",
-        title: "Você retoma o controle quando quiser.",
+        eyebrow: "Integra\u00e7\u00f5es",
+        title: "Funcionalidades de integra\u00e7\u00e3o, tamb\u00e9m com APIs externas.",
         description:
-          "Configure palavras-chave ou situações para escalar. O colaborador passa o contexto — sua equipe entra preparada.",
+          "Google Sheet \u00e9 um exemplo simples para centralizar reservas, pedidos de eventos, disponibilidade ou acompanhamento operacional sem trocar as ferramentas que voc\u00ea j\u00e1 usa.",
+      },
+      {
+        eyebrow: "Controle",
+        title: "Voc\u00ea retoma o controle quando quiser.",
+        description:
+          "Configure palavras-chave ou situa\u00e7\u00f5es para escalar. O colaborador passa o contexto \u2014 sua equipe entra preparada.",
       },
     ],
+    integrationShowcase: {
+      eyebrow: "Exemplo pr\u00e1tico",
+      title: "Integra\u00e7\u00e3o com Google Sheet",
+      description:
+        "O colaborador pode enviar ou consultar dados atrav\u00e9s de integra\u00e7\u00f5es e tamb\u00e9m com APIs externas. Exemplo: um Google Sheet compartilhado para acompanhar reservas, eventos, disponibilidade ou listas operacionais em tempo real.",
+      image: "/images/Ecran google Sheet.jpg",
+      imageAlt:
+        "Exemplo de integra\u00e7\u00e3o com Google Sheet para acompanhar reservas e disponibilidade de restaurante",
+    },
     operations: [
       "Reservas individuais, grupos e eventos privativos",
-      "Proposta comercial e confirmação de privatização de salão",
+      "Proposta comercial e confirma\u00e7\u00e3o de privatiza\u00e7\u00e3o de sal\u00e3o",
       "Pedidos para retirada ou entrega",
-      "Escalation configurável — você decide quando entrar",
+      "Escalation configur\u00e1vel \u2014 voc\u00ea decide quando entrar",
     ],
     steps: [
       {
         number: "01",
-        title: "Configure reservas, eventos e cardápio",
+        title: "Configure reservas, eventos e card\u00e1pio",
         description:
-          "Regras de salão, capacidade, menus, proposta de eventos e critérios de privatização num único fluxo.",
+          "Regras de sal\u00e3o, capacidade, menus, proposta de eventos e crit\u00e9rios de privatiza\u00e7\u00e3o num \u00fanico fluxo.",
       },
       {
         number: "02",
         title: "Conecte WhatsApp, Instagram ou seu site",
         description:
-          "O colaborador atende nos canais que seus clientes já usam — sem mudar nada na sua operação.",
+          "O colaborador atende nos canais que seus clientes j\u00e1 usam \u2014 sem mudar nada na sua opera\u00e7\u00e3o.",
       },
       {
         number: "03",
@@ -918,3 +934,5 @@ export const solutions = [
 export function getSolutionBySlug(slug) {
   return solutions.find((solution) => solution.slug === slug);
 }
+
+
